@@ -43,8 +43,11 @@ client.on('ready', () => {
   rl.on('line', (line) => {
     switch (line.trim()) {
       case 'help':
-        console.log('VTBot Terminal Help:\nhelp\nping');
+        console.log('VTBot Terminal Help:\nhelp\nexit');
         break;
+      case 'exit':
+        console.log("[STATUS] Exiting VTBot...")
+        process.exit(0);
       default:
         console.log(`[ERROR] Unknown command: ${line.trim()}`);
         break;
@@ -60,17 +63,21 @@ client.on('ready', () => {
 client.on('message', msg => {
 
     if (msg.mentions != null && msg.mentions.users != null) {
-        if (msg.mentions.users.has("401491921865801728")) {
-            if (msg.author.id == 361202413165608962) {
-                msg.reply("BEGONE. You're a undertale fan. :sob:");
-            } else {
-                if (msg.content.toLowerCase().includes("hello")) {
+        if (msg.mentions.users.has("401491921865801728")){
+                if (msg.content.toLowerCase().includes("hello") || (msg.content.toLowerCase().includes("hi"))) {
                     msg.reply("Hi there.");
-            } else if (msg.content.toLowerCase().includes("shut") && msg.content.toLowerCase().includes("up")) {
+            } else {
+                if (msg.content.toLowerCase().includes("shut") && msg.content.toLowerCase().includes("up")) {
                 msg.reply("Excuse me?")
+            } else if (msg.content.toLowerCase().includes("kden")) {
+                msg.reply("live")
             }
             }
         }
+    }
+
+    if (msg.content == 'kden') {
+        msg.channel.send('live');
     }
       
     if (msg.content == prefix + 'help') {
