@@ -71,6 +71,8 @@ client.on('message', msg => {
                 msg.reply("Excuse me?")
             } else if (msg.content.toLowerCase().includes("kden")) {
                 msg.reply("live")
+            } else if (msg.content.toLowerCase().includes("sausages")) {
+                msg.reply("Sausages.")
             }
             }
         }
