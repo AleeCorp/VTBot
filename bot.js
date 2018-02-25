@@ -8,7 +8,7 @@ const prefix = "vt!";
 function setGame() {
     var games = [
         "For help: vt!help",
-		"QT Creator",
+		"Qt Creator",
 		"theShell",
 		"VS Code"
     ]
